@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=IBM+Plex+Sans:wght@300&family=Quicksand&family=Ubuntu:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Fjalla One', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .navbar {
-  height: 40px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(78, 122, 243);
+  align-items: center;
+  background: transparent;
+  padding: 0px 80px;
 }
 
 .logo-div {
   display: flex;
   align-items: center;
+  width: hug (186px);
+  gap: 24px;
 }
 
 .logo {
@@ -62,3 +78,20 @@
   height: 30px;
 }
 
+.hero {
+  display: flex;
+  align-items: center;
+  height: 600px;
+  background-color: rgb(92, 43, 226);
+  margin-top: -80px;
+  padding-left: 80px;
+}
+
+.hero-content {
+  width: 404px;
+}
+
+.hero-ratings {
+  height: 17px;
+  width: 184px;
+}
