@@ -77,22 +77,22 @@ function MovieDetails() {
 
         <div className="movie-nav-links">
 
-            <Link className={movieNavLink === 0 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(0)} style={{width: '125%'}}>
+            <Link className={movieNavLink === 0 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(0)}>
                 <img src={Home} alt="Home" className="mnl-icon" />
                 <p>Home</p>
             </Link>
 
-            <Link className={movieNavLink === 1 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(1)} style={{width: '125%'}}>
+            <Link className={movieNavLink === 1 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(1)}>
                 <img src={MovieProjector} alt="Movies" className="mnl-icon" />
                 <p>Movies</p>
             </Link>
 
-            <Link className={movieNavLink === 2 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(2)} style={{width: '125%'}}>
+            <Link className={movieNavLink === 2 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(2)}>
                 <img src={TvShow} alt="Tv-Series" className="mnl-icon" />
                 <p>Tv Series</p>
             </Link>
 
-            <Link className={movieNavLink === 3 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(3)} style={{width: '125%'}}>
+            <Link className={movieNavLink === 3 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(3)}>
                 <img src={Calendar} alt="Upcoming" className="mnl-icon" />
                 <p>Upcoming</p>
             </Link>
@@ -107,7 +107,7 @@ function MovieDetails() {
                 <button className='quiz-button'>Start Playing</button>
             </div>
 
-            <Link className={movieNavLink === 4 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(4)} style={{width:'140%', marginLeft:'-40px'}}>
+            <Link className={movieNavLink === 4 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(4)}>
                 <img src={Logout} alt="Logout" className="mnl-icon" />
                 <p>LogOut</p>
             </Link>
@@ -157,18 +157,8 @@ function MovieDetails() {
             </div>
 
             <div className="third">
-                        <div className="third-left">
-                            <p>{Data.overview}</p>
-                            <div className="production-teams">
-                                <div className="production-team">
-                                    Director : <p>{}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="third-right">
-                            <button onClick={filterDirectors}>filter</button>
-                        </div>
+                        
+                    <p className='movie-details-description'>{Data.overview}</p>
             </div>
         </div>
     </div>
