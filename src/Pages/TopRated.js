@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Hero from '../Components/Hero'
 import Favorite from '../Images/Favorite.png'
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../Components/Navbar'
+import Navbar from '../Components/Navbar';
 
-function Home() {
-  const navigate = useNavigate()
-  const [Data, setData] = useState([])
+function TopRated() {
+    const navigate = useNavigate()
+    const [Data, setData] = useState([])
 
 
   const options = {
@@ -20,8 +19,8 @@ function Home() {
       async function getTrendingMovieData() {
           await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
           .then(response => response.json())
-          .then(response => setData(response.results.slice(0, 10)))
-          // .then(console.log(Data))
+          .then(response => setData(response.results))
+          .then(console.log(Data))
           .catch(err => console.error(err));
       
         }
@@ -29,20 +28,16 @@ function Home() {
         useEffect(() => {
           getTrendingMovieData()
         })
-
-        
   return (
-    <div className="Home">
-        <Navbar />
-        <Hero />
+    <div>
+        < Navbar />
 
-        
         <div className="home-heading">
-          <h2><b>Top 10 Rated Movies</b></h2>
-          <Link className='see-more' to="/toprated">See More</Link>
+          <h2>Top Rated Movies</h2>
         </div>
 
         {Data ? <><div className='card-container'>
+
 
         {Data.map((item) =>
               <Link className='card-link-container' to={`/${item.id}`}>              
@@ -70,4 +65,4 @@ function Home() {
   )
 }
 
-export default Home
+export default TopRated

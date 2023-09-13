@@ -1,7 +1,8 @@
 import React from 'react'
 import {  Route, Routes, BrowserRouter,} from 'react-router-dom';
 import Home from './Pages/Home'
-import Navbar from './Components/Navbar'
+import TopRated from './Pages/TopRated';
+import MovieDetails from './Pages/MovieDetails';
 
 
 function App() {
@@ -9,11 +10,10 @@ function App() {
     <BrowserRouter >
       <div className="App">
         
-        <Navbar />
-
-
       <Routes>
         <Route path="/" element={ <Home/> } />
+        <Route path="/toprated" element={ <TopRated/> } />
+        <Route path="/:id" element={ <MovieDetails/> } />
         
       </Routes>
     
