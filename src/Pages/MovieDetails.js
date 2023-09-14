@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Logo from '../Images/Moviebox-Icon.png'
 import Calendar from '../Images/Calendar.png'
@@ -10,6 +10,7 @@ import Star from '../Images/Star.png'
 import TvShow from '../Images/TV Show.png'
 import Tickets from '../Images/Two Tickets.png'
 import Play from '../Images/Play.png'
+import RingLoader from "react-spinners/RingLoader";
 
 
 function MovieDetails() {
@@ -20,6 +21,7 @@ function MovieDetails() {
     const [Data2, setData2] = useState([])
     const [Directors, setDirectors] = useState([])
     const [UtcDate, setUtcDate] = useState()
+    const [isLoading, setIsLoading] = useState(true)
 
 
     const options = {
@@ -30,11 +32,21 @@ function MovieDetails() {
         }
       };
       
-      fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+      function getDetails() {
+        fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
         .then(response => response.json())
         .then(response => setData(response))
+        .then(setIsLoading(false))
         //.then(console.log(Data))
         .catch(err => console.error(err));
+      }
+
+      useEffect(() => {
+        getDetails()
+      }, [])
+      
+
+
 
         const getUTC = () => {
             const utcDate = new Date(Data.release_date).toUTCString();
@@ -50,20 +62,6 @@ function MovieDetails() {
 
 
 
-      fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options)
-            .then(response => response.json())
-            .then(response => setData2(response))
-            //.then(console.log(Data2))
-            .catch(err => console.error(err));
-
-            const filterDirectors = () => {
-                setDirectors(
-                  Data2?.filter((credit) => credit.job !== "Director")
-                );
-              };
-
-
-            //  console.log(Directors);
 
   return (
     <div className='movie-details'>
@@ -131,9 +129,9 @@ function MovieDetails() {
 
             <div className="second">
                 <div className="movie-details-bio">
-                    <h2>{Data.title}</h2>
+                    <h2 data-testid= "movie-title">{Data.title}</h2>
                     <span>•</span>
-                    <h4>{getUTC()}</h4>
+                    <h4 data-testid= "movie-release-date">{getUTC()}</h4>
                     <span>•</span>
                     <h4>{Data.runtime}m</h4>
 
@@ -161,6 +159,7 @@ function MovieDetails() {
                     <p className='movie-details-description'>{Data.overview}</p>
             </div>
         </div>
+        <div className="spinner">{isLoading && <RingLoader color="#e11d48" size={200}/>}</div>
     </div>
   )
 }

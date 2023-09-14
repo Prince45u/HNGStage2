@@ -5,12 +5,15 @@ import Menu from '../Images/Menu.png'
 import Search from '../Images/Search.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Favorite from '../Images/Favorite.png'
+import RingLoader from "react-spinners/RingLoader";
+import Card from './Card'
 
 function Navbar() {
   const navigate = useNavigate()
   const [SearchInput, setSearchInput] = useState('')
   const [SearchResults, setSearchResults] = useState([])
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
 
   const SearchNotVisible = () => {
@@ -28,13 +31,18 @@ function Navbar() {
   };
 
   async function getSearchResults() {
+      setIsLoading(true)
       await fetch(`https://api.themoviedb.org/3/search/movie?query=${SearchInput}&include_adult=false&language=en-US&page=1`, options)
       .then(response => response.json())
       .then(response => setSearchResults(response.results))
       .then(SearchResults? console.log(SearchResults) : null)
+      .then(setIsLoading(false))
       .catch(err => console.error(err))
       .then(setIsVisible(true))
+      
   }
+
+  
 
   return (
     <div className="nav">
@@ -68,33 +76,22 @@ function Navbar() {
           <p className="see-more" onClick={SearchNotVisible}>close</p>
         </div>
 
-        {SearchResults ? <><div className='card-container'>
+        {SearchResults.length ? <><div className='card-container'>
 
 
-        {SearchResults.map((item) =>
-              <Link className='card-link-container' to={`/${item.id}`} onClick={SearchNotVisible}>              
-                <div className="card">
-                  <div className="card-img" style={{ 
-                    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${item.poster_path})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat", }}>
-
-                      <img src={Favorite} alt="Favorite" className='favorite' />
-                  </div>
-
-                  <div className="card-content">
-                      <p className='release-date' style={{ color: "#e11d48", fontSize: "13px"}}><i style={{ color: "black", opacity: "0.6"}}>Release Date  </i>{item.release_date}</p>
-                      <h4 className='movie-title'>{item.title}</h4>
-                      <p className='home-ratings' style={{ color: "#e11d48", fontSize: "14px" }}><i style={{ color: "black", opacity: "0.6" }}>Ratings  </i>{item.vote_average}</p>
-                  </div>
-                </div>
-              </Link>
+        {SearchResults.map((item, key) =>
+              < Card item={item} key={key} />
               )}
 
-    </div></> : <>Loading...</>}
-    </div>: null}
+    </div></> : <div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'300px'}}><h1>Result not Found</h1></div>}
+
+    
+    </div>: <div className="spinner">{isLoading && <RingLoader color="#e11d48" size={200}/>}</div>}
+
+    
+    
     </div>
+    
   )
 }
 
