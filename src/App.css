@@ -107,7 +107,9 @@ a {
 }
 
 .hero-ratings {
-  height: 17px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   width: 184px;
 }
 
