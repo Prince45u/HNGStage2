@@ -18,10 +18,9 @@ function MovieDetails() {
 
     const [movieNavLink, setMovieNavLink] = useState(1)
     const [Data, setData] = useState([])
-    const [Data2, setData2] = useState([])
-    const [Directors, setDirectors] = useState([])
-    const [UtcDate, setUtcDate] = useState()
+    const [Video, setVideo] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [VideoKey, setVideoKey] = useState("")
 
 
     const options = {
@@ -37,15 +36,31 @@ function MovieDetails() {
         .then(response => response.json())
         .then(response => setData(response))
         .then(setIsLoading(false))
-        //.then(console.log(Data))
+        .then(console.log(Data))
         .catch(err => console.error(err));
       }
 
-      useEffect(() => {
-        getDetails()
-      }, [])
+    //   useEffect(() => {
+    //     getDetails()
+    //   }, [])
+
+
+      function getVideo() {
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+        .then(response => response.json())
+        .then(response => setVideo(response.results[0].key))
+        .then(console.log(Video))
+        .then(console.log(VideoKey))
+        .catch(err => console.error(err));
+      }
       
 
+      useEffect(() => {
+        getVideo();
+        getDetails();
+      }, [])
+      
+        // console.log(VideoKey);
 
 
         const getUTC = () => {
@@ -115,7 +130,7 @@ function MovieDetails() {
         </div>
 
         <div className="movie-details-content">
-            <div className="first" style={{
+            {/* <div className="first" style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://image.tmdb.org/t/p/w1280/${Data.backdrop_path})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -125,7 +140,17 @@ function MovieDetails() {
                     <img src={Play} alt="play" />
                     <p style={{color:'white'}}>Watch Trailer</p>
 
-            </div>
+            </div> */}
+
+                <iframe
+                    className='first'
+                    width="560"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${Video}`}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
 
             <div className="second">
                 <div className="movie-details-bio">
@@ -159,6 +184,7 @@ function MovieDetails() {
             <div className="third">
                         
                     <p data-testid= "movie-overview" className='movie-details-description'>{Data.overview}</p>
+                    
             </div>
         </div>
         <div className="spinner">{isLoading && <RingLoader color="#e11d48" size={200}/>}</div>

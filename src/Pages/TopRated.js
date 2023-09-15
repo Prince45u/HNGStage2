@@ -7,7 +7,6 @@ import Card from '../Components/Card';
 import Footer from '../Components/footer';
 
 function TopRated() {
-    const navigate = useNavigate()
     const [Data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
