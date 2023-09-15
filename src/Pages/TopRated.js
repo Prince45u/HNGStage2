@@ -37,7 +37,7 @@ function TopRated() {
         < Navbar />
 
         <div className="home-heading">
-          <h2>Top Rated Movies</h2>
+          <h2 className='home-h2'>Top Rated Movies</h2>
         </div>
 
         {Data.length ? <><div className='card-container'>

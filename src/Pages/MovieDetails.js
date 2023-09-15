@@ -129,26 +129,28 @@ function MovieDetails() {
 
             <div className="second">
                 <div className="movie-details-bio">
-                    <h2 data-testid= "movie-title">{Data.title}</h2>
+                    <div className="bio">
+                    <h2 data-testid= "movie-title" className='movie-title'>{Data.title}</h2>
                     <span>•</span>
-                    <h4 data-testid= "movie-release-date">{getUTC()}</h4>
+                    <h4 data-testid= "movie-release-date" className='details-h4'>{getUTC()}</h4>
                     <span>•</span>
-                    <h4>{Data.runtime}m</h4>
+                    <h4 data-testid= "movie-runtime" className='details-h4'>{Data.runtime}m</h4>
+                    </div>
 
-                    {Data && Data.genres ? Data.genres.map(genre => ( <>
+                    {Data && Data.genres ? Data.genres.map(genre => ( <div>
                         <span className="movie-genre" id={genre.id}>
                             {genre.name}
-                        </span></> )) : ""}
+                        </span></div> )) : ""}
 
                 </div>
 
                 <div className="movie-details-ratings">
-                        <span>
+                        <span className='details-h4'>
                         <img src={Star} alt="" />
                         {Data.vote_average}
                         </span>
-                        <span> | </span>
-                        <span>
+                        <span className='details-h4'> | </span>
+                        <span className='details-h4'>
                         {formatter.format(Data.vote_count)}
                         </span>
                 </div>
@@ -156,7 +158,7 @@ function MovieDetails() {
 
             <div className="third">
                         
-                    <p className='movie-details-description'>{Data.overview}</p>
+                    <p data-testid= "movie-overview" className='movie-details-description'>{Data.overview}</p>
             </div>
         </div>
         <div className="spinner">{isLoading && <RingLoader color="#e11d48" size={200}/>}</div>

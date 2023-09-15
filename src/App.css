@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;600&display=swap');
 
 * {
   margin: 0;
@@ -12,13 +12,12 @@ a {
 }
 
 .navbar {
-  width: inherit;
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: transparent;
-  padding: 0px 80px;
   z-index: 10;
   position: sticky;
   color: rgb(255, 255, 255);
@@ -360,9 +359,14 @@ a {
   gap: 20px;
 }
 
+.bio {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .movie-details-ratings {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 5px;
 }
@@ -427,6 +431,34 @@ a {
   z-index: 15;
 }
 
+.footer {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-first {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-second {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-icon:hover {
+  scale: 1.2;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: #e11d48;
+  cursor: pointer;
+}
 
 @media (max-width: 1080px) {
   .search-input {
@@ -437,12 +469,38 @@ a {
     width: 350px;
   
   }
+
+  .hero-content {
+    width: 45%;
+  }
+
+  .home-heading {
+    padding: 30px 20px 0px;
+    gap: 10px;
+    
+  }
+
+  .movie-details-bio {
+    gap: 5px;
+  }
+
+  .movie-details-description {
+    width: 100%;
+    text-align: justify;
+  }
+
+  
 }
 
+@media (max-width: 920px) {
+  .movie-details-nav {
+    display: none;
+  }
+}
 
 @media (max-width: 715px) {
   *{
-    font-size: 16px;
+    font-size: 13px;
   }
   .search-input {
     width: 100%;
@@ -452,5 +510,92 @@ a {
     width: 200px;
     height: 15px;
   
+  }
+
+  .search-div-h2, .signin-text{
+    display: none !important; 
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-div {
+    gap: 10px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    margin-top: -80px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero-h1 {
+    font-size: 45px;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .overview {
+    text-align: justify;
+  }
+
+  .hero-content {
+    width: 75%;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-nav {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    height: 20vh;
+    gap: 30px;
+  }
+
+  .hero-ratings{
+    width: 100%;
+  }
+
+  .home-heading {
+    padding: 20px 20px;
+    justify-content: space-between;
+  }
+
+  .home-h2 {
+    font-size: 20px;
+  }
+
+  .card-container {
+    padding: 20px;
+  }
+
+  .second {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .movie-title {
+    font-size: 25px;
+  }
+
+  .details-h4 {
+    font-size: 15px;
+  }
+
+  .movie-details-bio {
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

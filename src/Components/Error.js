@@ -7,6 +7,7 @@ function Error() {
     <div>
         <h1>Error Page</h1>
         <p>{error.statusText}</p>
+        <p>{error.message}</p>
     </div>
   )
 }

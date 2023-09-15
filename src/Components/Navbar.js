@@ -50,7 +50,7 @@ function Navbar() {
         <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
         <div className="logo-div">
             <img src={Logo} alt="Moviebox-logo" className='logo'/>
-            <h2>MovieBox</h2>
+            <h2 className='search-div-h2'>MovieBox</h2>
         </div>
         </Link>
 
@@ -72,7 +72,7 @@ function Navbar() {
 
     {SearchResults ? <div className="search-results" style={{ display: isVisible ? "block" : "none" }}>
     <div className="home-heading">
-          <h2>Search Results for {SearchInput}</h2>
+          <h2 className='home-h2'>Search Results for {SearchInput}</h2>
           <p className="see-more" onClick={SearchNotVisible}>close</p>
         </div>
 
