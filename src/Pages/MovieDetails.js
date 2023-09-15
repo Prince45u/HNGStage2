@@ -20,7 +20,7 @@ function MovieDetails() {
     const [Data, setData] = useState([])
     const [Video, setVideo] = useState('')
     const [isLoading, setIsLoading] = useState(true)
-    const [VideoKey, setVideoKey] = useState("")
+    const [Trailers, setTrailers] = useState([])
 
 
     const options = {
@@ -46,13 +46,13 @@ function MovieDetails() {
 
 
       function getVideo() {
-        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US&type=Trailer`, options)
         .then(response => response.json())
         .then(response => setVideo(response.results[0].key))
         .then(console.log(Video))
-        .then(console.log(VideoKey))
         .catch(err => console.error(err));
       }
+      
       
 
       useEffect(() => {
@@ -84,7 +84,7 @@ function MovieDetails() {
         <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
         <div className="logo-div">
             <img src={Logo} alt="Moviebox-logo" className='logo'/>
-            <h2>MovieBox</h2>
+            <h2 className='link-p'>MovieBox</h2>
         </div>
         </Link>
 
@@ -92,27 +92,27 @@ function MovieDetails() {
 
             <Link className={movieNavLink === 0 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(0)}>
                 <img src={Home} alt="Home" className="mnl-icon" />
-                <p>Home</p>
+                <p className='link-p'>Home</p>
             </Link>
 
             <Link className={movieNavLink === 1 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(1)}>
                 <img src={MovieProjector} alt="Movies" className="mnl-icon" />
-                <p>Movies</p>
+                <p className='link-p'>Movies</p>
             </Link>
 
             <Link className={movieNavLink === 2 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(2)}>
                 <img src={TvShow} alt="Tv-Series" className="mnl-icon" />
-                <p>Tv Series</p>
+                <p className='link-p'>Tv Series</p>
             </Link>
 
             <Link className={movieNavLink === 3 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(3)}>
                 <img src={Calendar} alt="Upcoming" className="mnl-icon" />
-                <p>Upcoming</p>
+                <p className='link-p'>Upcoming</p>
             </Link>
         </div>
 
         <div className="nav-footer">
-            <div className="quiz-card">
+            <div className="quiz-card link-p">
                 <p>Play movie quizes<br/>and earn<br/>free tickets</p>
 
                 <p style={{fontSize: 'smaller', color: '#666666'}}>50k people are playing now</p>
@@ -122,7 +122,7 @@ function MovieDetails() {
 
             <Link className={movieNavLink === 4 ? "movie-nav-link-active" : "movie-nav-link"} onClick={() => setMovieNavLink(4)}>
                 <img src={Logout} alt="Logout" className="mnl-icon" />
-                <p>LogOut</p>
+                <p className='link-p'>LogOut</p>
             </Link>
         </div>
 
@@ -144,8 +144,6 @@ function MovieDetails() {
 
                 <iframe
                     className='first'
-                    width="560"
-                    height="315"
                     src={`https://www.youtube.com/embed/${Video}`}
                     title="YouTube video player"
                     frameborder="0"

@@ -497,6 +497,11 @@ a {
 
 @media (max-width: 920px) {
   .movie-details-nav {
+    width: 50px;
+    
+  }
+
+  .link-p {
     display: none;
   }
 }
@@ -600,5 +605,13 @@ a {
     justify-content: space-around;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .first {
+    height: 200px;
+  }
+
+  .movie-details-content {
+    padding: 20px;
   }
 }
