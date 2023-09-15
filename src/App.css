@@ -463,6 +463,41 @@ a {
   cursor: pointer;
 }
 
+.-background {
+  background-image: url('./Images/404-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  opacity: 1;
+  gap: 10px;
+}
+
+.-h1 {
+  font-size: 150px;
+}
+
+.err-button {
+  color: #e11d48;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 25px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 @media (max-width: 1080px) {
   .search-input {
     width: 100%;

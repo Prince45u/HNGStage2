@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import TopRated from './Pages/TopRated';
 import MovieDetails from './Pages/MovieDetails';
 import Error from './Components/Error';
+import PageNotFound from './Pages/PageNotFound';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={ <Home/> } errorElement = {<Error/> }/>
         <Route path="/toprated" element={ <TopRated/> } />
         <Route path="/movies/:id" element={ <MovieDetails/> } />
+        <Route path="*" element={ <PageNotFound/> } />
         
       </Routes>
     
