@@ -6,7 +6,7 @@ import Instagram from '../Images/fa-brands_instagram.png'
 import Youtube from '../Images/fa-brands_youtube.png'
 
 
-function footer() {
+function Footer() {
   return (
     <div className='footer'>
         <div className="footer-first">
@@ -29,4 +29,4 @@ function footer() {
   )
 }
 
-export default footer
+export default Footer

@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom';
 import Navbar from '../Components/Navbar'
 import RingLoader from "react-spinners/RingLoader";
 import Card from '../Components/Card'
-import Footer from '../Components/Footer';
+import Footer from '../Components/footer';
 
 
 function Home() {

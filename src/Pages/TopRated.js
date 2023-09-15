@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Favorite from '../Images/Favorite.png'
+import '../App.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import RingLoader from "react-spinners/RingLoader";
 import Card from '../Components/Card';
+import Footer from '../Components/footer';
 
 function TopRated() {
     const navigate = useNavigate()
@@ -50,6 +51,7 @@ function TopRated() {
 
     </div></> : <><div className="spinner">{isLoading && <RingLoader color="#e11d48" size={200}/>}</div></>}
 
+    <Footer />
     </div>
   )
 }

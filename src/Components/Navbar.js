@@ -4,16 +4,15 @@ import Logo from '../Images/Moviebox-Icon.png'
 import Menu from '../Images/Menu.png'
 import Search from '../Images/Search.png'
 import { Link, useNavigate } from 'react-router-dom'
-import Favorite from '../Images/Favorite.png'
 import RingLoader from "react-spinners/RingLoader";
 import Card from './Card'
 
 function Navbar() {
-  const navigate = useNavigate()
   const [SearchInput, setSearchInput] = useState('')
   const [SearchResults, setSearchResults] = useState([])
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
+
 
 
   const SearchNotVisible = () => {
@@ -41,8 +40,6 @@ function Navbar() {
       .then(setIsVisible(true))
       
   }
-
-  
 
   return (
     <div className="nav">
