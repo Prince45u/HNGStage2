@@ -109,7 +109,7 @@ a {
 .hero-ratings {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   width: 184px;
 }
 
