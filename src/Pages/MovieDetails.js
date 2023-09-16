@@ -157,7 +157,7 @@ function MovieDetails() {
                     <span>•</span>
                     <h4 data-testid="movie-release-date" className='details-h4'>{getUTC()}</h4>
                     <span>•</span>
-                    <h4 data-testid="movie-runtime" className='details-h4'>{Data.runtime}m</h4>
+                    <h4 data-testid="movie-runtime" className='details-h4'>{Data.runtime}</h4>
                     </div>
 
                     {Data && Data.genres ? Data.genres.map(genre => ( <div>
