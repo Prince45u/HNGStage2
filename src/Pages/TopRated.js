@@ -23,7 +23,7 @@ function TopRated() {
           await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
           .then(response => response.json())
           .then(response => setData(response.results))
-          .then(console.log(Data))
+          // .then(console.log(Data))
           .then(setIsLoading(false))
           .catch(err => console.error(err));
       

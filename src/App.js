@@ -9,13 +9,14 @@ import PageNotFound from './Pages/PageNotFound';
 
 function App() {
   return (
-    <BrowserRouter >
+    
+      <BrowserRouter >
       <div className="App">
         
       <Routes>
         <Route path="/" element={ <Home/> } errorElement = {<Error/> }/>
-        <Route path="/toprated" element={ <TopRated/> } />
-        <Route path="/movies/:id" element={ <MovieDetails/> } />
+        <Route path="/toprated" element={ <TopRated/> } errorElement = {<Error/> }/>
+        <Route path="/movies/:id" element={ <MovieDetails/> } errorElement = {<Error/> }/>
         <Route path="*" element={ <PageNotFound/> } />
         
       </Routes>
@@ -23,6 +24,7 @@ function App() {
       </div>
         
     </BrowserRouter>
+    
   )
 }
 
