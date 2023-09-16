@@ -41,12 +41,12 @@ function Hero() {
     }}>
        
         <div className='hero-content'>
-            <h1 data-testid= "movie-title" className='hero-h1'>{Data.title}</h1>
+            <h1 data-testid="movie-title" className='hero-h1'>{Data.title}</h1>
             <div className="hero-ratings">
               <img src={Star} alt="star" />
                 <p><i>Rating </i><b>{Data.vote_average}</b></p>
             </div>
-              <p className='overview'>{Data.overview}</p>
+              <p data-testid="movie-overview" className='overview'>{Data.overview}</p>
         </div>
 
         <div className="hero-nav">

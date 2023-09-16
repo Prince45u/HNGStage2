@@ -153,11 +153,11 @@ function MovieDetails() {
             <div className="second">
                 <div className="movie-details-bio">
                     <div className="bio">
-                    <h2 data-testid= "movie-title" className='movie-title'>{Data.title}</h2>
+                    <h2 data-testid="movie-title" className='movie-title'>{Data.title}</h2>
                     <span>•</span>
-                    <h4 data-testid= "movie-release-date" className='details-h4'>{getUTC()}</h4>
+                    <h4 data-testid="movie-release-date" className='details-h4'>{getUTC()}</h4>
                     <span>•</span>
-                    <h4 data-testid= "movie-runtime" className='details-h4'>{Data.runtime}m</h4>
+                    <h4 data-testid="movie-runtime" className='details-h4'>{Data.runtime}m</h4>
                     </div>
 
                     {Data && Data.genres ? Data.genres.map(genre => ( <div>
@@ -181,7 +181,7 @@ function MovieDetails() {
 
             <div className="third">
                         
-                    <p data-testid= "movie-overview" className='movie-details-description'>{Data.overview}</p>
+                    <p data-testid="movie-overview" className='movie-details-description'>{Data.overview}</p>
                     
             </div>
         </div>
