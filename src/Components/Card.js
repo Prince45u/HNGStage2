@@ -33,9 +33,9 @@ function Card({item}) {
                   </div>
 
                   <div className="card-content">
-                      <p data-testid="movie-release-date" className='release-date' style={{ color: "#e11d48", fontSize: "13px"}}><i style={{ color: "black", opacity: "0.6"}}>Release Date  </i>{item.release_date}</p>
+                      <p data-testid="movie-release-date" className='release-date' style={{ color: "#e11d48", fontSize: "13px"}}>{item.release_date}</p>
                       <h4 data-testid="movie-title" className='movie-title'>{item.title}</h4>
-                      <p className='home-ratings' style={{ color: "#e11d48", fontSize: "14px" }}><i style={{ color: "black", opacity: "0.6" }}>Ratings  </i>{item.vote_average}</p>
+                      <p className='home-ratings' style={{ color: "#e11d48", fontSize: "14px" }}>{item.vote_average}</p>
                       
                   </div>
                 </div>
