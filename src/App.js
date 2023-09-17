@@ -5,12 +5,14 @@ import TopRated from './Pages/TopRated';
 import MovieDetails from './Pages/MovieDetails';
 import Error from './Components/Error';
 import PageNotFound from './Pages/PageNotFound';
+import ErrorBoundary from './Components/Error';
 
 
 function App() {
   return (
     
-      <BrowserRouter >
+      <ErrorBoundary>
+        <BrowserRouter >
       <div className="App">
         
       <Routes>
@@ -24,6 +26,7 @@ function App() {
       </div>
         
     </BrowserRouter>
+      </ErrorBoundary>
     
   )
 }

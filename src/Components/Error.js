@@ -1,16 +1,35 @@
-import React from 'react'
-import { useRouteError } from 'react-router-dom'
+import React from "react";
+import { stopReportingRuntimeErrors } from "react-error-overlay";
 
-function Error() {
-    // const error = useRouteError();
+class ErrorBoundary extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-    console.log('Error page test');
-  return (
-    <div>
-        <h1>Something went wrong</h1>
-      <p>hmm</p>
-    </div>
-  )
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Log the error to a server or send an email notification
+    // console.error(error, errorInfo);
+  }
+
+
+  render() {
+    if (this.state.hasError) {
+      return (<div className="-background">
+        <div className="-content">
+          <h1 className="-text">ERROR</h1>
+          <p className="-p">Something went wrong</p>
+        </div>
+      </div>);
+    }
+
+    return this.props.children;
+  }
 }
 
-export default Error
+export default ErrorBoundary;
