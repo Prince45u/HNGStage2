@@ -20,7 +20,6 @@ function MovieDetails() {
     const [Data, setData] = useState([])
     const [Video, setVideo] = useState('')
     const [isLoading, setIsLoading] = useState(true)
-    const [Trailers, setTrailers] = useState([])
 
 
     const options = {
@@ -59,16 +58,9 @@ function MovieDetails() {
         getVideo();
         getDetails();
       }, [])
-      
-        // console.log(VideoKey);
+          
 
 
-        const getUTC = () => {
-            const utcDate = new Date(Data.release_date).toUTCString();
-            const stringDate = utcDate.split(" ").slice(0, 4).join(" ");
-            console.log(stringDate);
-            return stringDate;
-          };
 
         const formatter = new Intl.NumberFormat("en-US", {
             notation: "compact",
@@ -155,7 +147,7 @@ function MovieDetails() {
                     <div className="bio">
                     <h2 data-testid="movie-title" className='movie-title'>{Data.title}</h2>
                     <span>•</span>
-                    <h4 data-testid="movie-release-date" className='details-h4'>{getUTC()}</h4>
+                    <h4 data-testid="movie-release-date" className='details-h4'>{Data.release_date}</h4>
                     <span>•</span>
                     <h4 data-testid="movie-runtime" className='details-h4'>{Data.runtime}</h4>
                     </div>
