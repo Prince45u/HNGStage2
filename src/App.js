@@ -4,7 +4,6 @@ import Home from './Pages/Home'
 import TopRated from './Pages/TopRated';
 import MovieDetails from './Pages/MovieDetails';
 import Error from './Components/Error';
-import PageNotFound from './Pages/PageNotFound';
 import ErrorBoundary from './Components/Error';
 
 
@@ -19,7 +18,6 @@ function App() {
         <Route path="/" element={ <Home/> } errorElement = {<Error/> }/>
         <Route path="/toprated" element={ <TopRated/> } errorElement = {<Error/> }/>
         <Route path="/movies/:id" element={ <MovieDetails/> } errorElement = {<Error/> }/>
-        <Route path="*" element={ <PageNotFound/> } />
         
       </Routes>
     
