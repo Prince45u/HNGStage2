@@ -122,7 +122,7 @@ function MovieDetails() {
         </div>
 
         <div className="movie-details-content">
-            {/* <div className="first" style={{
+            <div data-testid= "movie-poster" className="first" style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://image.tmdb.org/t/p/w1280/${Data.backdrop_path})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -132,15 +132,15 @@ function MovieDetails() {
                     <img src={Play} alt="play" />
                     <p style={{color:'white'}}>Watch Trailer</p>
 
-            </div> */}
+            </div>
 
-                <iframe
+                {/* <iframe
                     className='first'
                     src={`https://www.youtube.com/embed/${Video}`}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe> */}
 
             <div className="second">
                 <div className="movie-details-bio">
